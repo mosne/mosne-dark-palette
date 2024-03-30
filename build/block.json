@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mosne/color-scheme",
+  "version": "0.1.0",
+  "title": "Mosne Color Scheme",
+  "category": "widgets",
+  "description": "A block that allow you to choose your color scheme (a11y friendly)",
+  "example": {},
+  "supports": {
+    "reusable": false,
+    "html": false
+  },
+  "attributes": {
+    "classOptions": {
+      "type": "string",
+      "default": "has-icon has-label"
+    },
+    "defaultLabel": {
+      "type": "string",
+      "default": "Theme"
+    },
+    "autoLabel": {
+      "type": "string",
+      "default": "OS auto"
+    },
+    "darkLabel": {
+      "type": "string",
+      "default": "Dark"
+    },
+    "lightLabel": {
+      "type": "string",
+      "default": "Light"
+    }
+  },
+  "textdomain": "mosne-color-scheme",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

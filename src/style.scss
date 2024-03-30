@@ -1,0 +1,75 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mosne-color-scheme {
+	border: 1px solid #f00;
+	&,
+	li{
+		list-style: none;
+	}
+	button {
+		appearance: none;
+		padding: 0;
+		border: 0;
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+		background-color: inherit;
+		line-height: inherit;
+		cursor: pointer;
+	}
+
+	&.hide-label {
+		// sr-only
+		button > span {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border-width: 0;
+		}
+	}
+
+	&.hide-icon {
+		button::before {
+			display: none;
+		}
+	}
+
+	&.has-icon {
+		button{
+			&::before {
+				content: '';
+				width: .8lh;
+				height: .8lh;
+				margin-top: .1lh;
+				aspect-ratio: 1;
+				margin-right: .25lh;
+				display: inline-block;
+				background: currentColor;
+				vertical-align: top;
+				mask: url("../assets/auto.svg") no-repeat;
+				mask-size:  auto 100%;
+				mask-position: center center;
+			}
+			&.has-icon--light {
+				&::before {
+					mask: url("../assets/light.svg") no-repeat;
+				}
+			}
+			&.has-icon--dark {
+				&::before {
+					mask: url("../assets/dark.svg") no-repeat;
+				}
+			}
+		}
+	}
+}
