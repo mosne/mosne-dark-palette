@@ -4,5 +4,15 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-mosne-color-scheme {
+.wp-block-mosne-dark-palette {
+
+	&__parlette {
+		display: flex;
+		flex-wrap: wrap;
+
+		&-item {
+			flex: 1 1 50%;
+		}
+	}
 }
+

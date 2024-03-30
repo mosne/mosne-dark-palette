@@ -1,4 +1,4 @@
-=== Mosne Color Scheme ===
+=== Mosne Dark Palette ===
 Contributors:      mosne
 Tags:              block
 Tested up to:      6.5
@@ -6,19 +6,23 @@ Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Mosne Color Scheme (dark light or auto)
+Mosne Dark Palette
 
 == Description ==
 
-A block that allow you to choose your color scheme (a11y friendly)
+Create and apply your dark palette in an a11y friendly way using the new Interactivity API.
+Child of the block navigation menu, Mosne Dark Palette is gutenberg block that gives you :
+- A dropdown to choose the color mode you want with custom labels
+- A color picker to remap you color palette
 
 == Installation ==
 
 This section describes how to install the plugin and get it working.
+Add the Mosne Dark Palette block in a block navigation.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/mosne-color-scheme` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/mosne-dark-palette` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 

@@ -1,7 +1,7 @@
 {
-	"name": "mosne-color-scheme",
+	"name": "mosne-dark-palette",
 	"version": "0.1.0",
-	"description": "Choose your color scheme using the Interactivity API in an a11y friendly way.",
+	"description": "Create and apply your dark palette in an a11y friendly way using the new Interactivity API.",
 	"author": "mosne",
 	"license": "GPL-2s.0-or-later",
 	"main": "build/index.js",
@@ -12,12 +12,16 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --experimental-modules"
+		"start": "wp-scripts start --experimental-modules",
+		"make-pot": "wp i18n make-pot . languages/mosne-dark-palette.pot --slug=mosne-dark-palette --domain=mosne-dark-palette --exclude=node_modules,src",
+		"make-json": "wp i18n make-json languages/ --no-purge"
 	},
-	"files": [
-		"[^.]*"
-	],
 	"dependencies": {
+		"@wordpress/block-editor": "^12.23.0",
+		"@wordpress/components": "^26.0.0",
+		"@wordpress/element": "^5.27.0",
+		"@wordpress/i18n": "^4.50.0",
+		"@wordpress/icons": "^9.45.0",
 		"@wordpress/interactivity": "^5.3.0"
 	},
 	"devDependencies": {

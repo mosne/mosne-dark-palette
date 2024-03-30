@@ -5,7 +5,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-mosne-color-scheme {
+.wp-block-mosne-dark-palette {
+
 	&,
 	li {
 		list-style: none;
@@ -22,10 +23,15 @@
 		background-color: inherit;
 		line-height: inherit;
 		cursor: pointer;
+		white-space: nowrap;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	ul li button {
-		padding: .5em 1em;
+		padding: 0.5em 1em;
 		width: 100%;
 		text-align: left;
 	}
@@ -48,27 +54,33 @@
 				display: inline-block;
 				background: currentColor;
 				vertical-align: top;
-				mask: url("../assets/auto.svg") no-repeat;
+				mask: url("../../assets/auto.svg") no-repeat;
 				mask-size: auto 100%;
 				mask-position: center center;
 			}
 
 			&.has-icon--light {
 				&::before {
-					mask: url("../assets/light.svg") no-repeat;
+					mask: url("../../assets/light.svg") no-repeat;
 				}
 			}
 
 			&.has-icon--dark {
 				&::before {
-					mask: url("../assets/dark.svg") no-repeat;
+					mask: url("../../assets/dark.svg") no-repeat;
 				}
 			}
 		}
 	}
+
 	&.hide-label {
 		// sr-only
-		> button {
+		.has-child > button {
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+
 			> span {
 				width: 1px;
 				height: 1px;
@@ -79,7 +91,9 @@
 				white-space: nowrap;
 				border-width: 0;
 				display: inline-block;
+
 			}
+
 			&::before {
 				margin-right: 0;
 			}

@@ -1,11 +1,11 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "mosne/color-scheme",
+  "name": "mosne/dark-palette",
   "version": "0.1.0",
-  "title": "Mosne Color Scheme",
+  "title": "Mosne Dark Palette",
   "category": "widgets",
-  "description": "Choose your color scheme using the Interactivity API in an a11y friendly way.",
+  "description": "Create and apply your dark palette in an a11y friendly way using the new Interactivity API.",
   "parent": [
     "core/navigation"
   ],
@@ -33,9 +33,14 @@
     "lightLabel": {
       "type": "string",
       "default": "Light"
+    },
+    "darkColorsPalette": {
+      "type": "array",
+      "default": []
     }
   },
-  "textdomain": "mosne-color-scheme",
+  "textdomain": "mosne-dark-palette",
+  "render": "file:./render.php",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
