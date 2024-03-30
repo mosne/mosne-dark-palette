@@ -188,7 +188,8 @@ function save({
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
       className: classWrapper
     }),
-    "data-wp-interactive": "mosneColorScheme"
+    "data-wp-interactive": "mosneColorScheme",
+    "data-wp-watch": "callbacks.logIsOpen"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     "aria-haspopup": "menu",

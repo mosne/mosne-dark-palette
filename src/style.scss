@@ -86,3 +86,28 @@
 		}
 	}
 }
+
+body{
+	--mosne-color-scheme-light: var(--wp--preset--color--base);
+	--mosne-color-scheme-dark: var(--wp--preset--color--contrast);
+	&.mosne-color-scheme{
+		&--light {
+			color: var(--mosne-color-scheme-dark);
+			background-color: var(--mosne-color-scheme-light);
+		}
+		&--auto {
+			color: var(--mosne-color-scheme-dark);
+			background-color: var(--mosne-color-scheme-light);
+			@media (prefers-color-scheme: dark) {
+				color: var(--mosne-color-scheme-light);
+				background-color: var(--mosne-color-scheme-dark);
+				prefers-color-scheme: dark;
+			}
+		}
+		&--dark {
+			color: var(--mosne-color-scheme-light);
+			background-color: var(--mosne-color-scheme-dark);
+			prefers-color-scheme: dark;
+		}
+	}
+}
