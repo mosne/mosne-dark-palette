@@ -15,7 +15,7 @@ export default function save({attributes}) {
 	const classWrapper = classOptions +' wp-block-navigation-item has-child open-on-hover-click wp-block-navigation-submenu';
 
 	return (
-		<li {...useBlockProps.save({className: classWrapper})}>
+		<li {...useBlockProps.save({className: classWrapper})} data-wp-interactive="mosneColorScheme">
 			<button type="button" aria-haspopup="menu" className="wp-block-navigation-submenu__toggle">
 					<span className="has-icon--auto">
 						{defaultLabel}

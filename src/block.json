@@ -6,11 +6,12 @@
 	"title": "Mosne Color Scheme",
 	"category": "widgets",
 	"description": "Choose your color scheme using the Interactivity API in an a11y friendly way.",
-	"parent": [ "core/navigation" ],
+	"parent": [
+		"core/navigation"
+	],
 	"example": {},
 	"supports": {
-		"reusable": false,
-		"html": false
+		"interactivity": true
 	},
 	"attributes": {
 		"classOptions": {

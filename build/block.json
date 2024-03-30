@@ -11,8 +11,7 @@
   ],
   "example": {},
   "supports": {
-    "reusable": false,
-    "html": false
+    "interactivity": true
   },
   "attributes": {
     "classOptions": {
