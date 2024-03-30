@@ -1,9 +1,9 @@
 {
 	"name": "mosne-color-scheme",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
+	"description": "Choose your color scheme using the Interactivity API in an a11y friendly way.",
+	"author": "mosne",
+	"license": "GPL-2s.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",

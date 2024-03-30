@@ -193,24 +193,33 @@ function save({
     darkLabel,
     lightLabel
   } = attributes;
+  const classWrapper = classOptions + ' wp-block-navigation-item has-child open-on-hover-click wp-block-navigation-submenu';
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      className: classOptions
+      className: classWrapper
     })
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
-    "aria-haspopup": "menu"
+    "aria-haspopup": "menu",
+    className: "wp-block-navigation-submenu__toggle"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "has-icon--auto"
   }, defaultLabel)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    "aria-labelledby": "themes-menu-button"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    "aria-labelledby": "themes-menu-button",
+    className: "wp-block-navigation__submenu-container wp-block-navigation-submenu"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "wp-block-navigation-item"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     className: "active-menu-item has-icon--auto"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, autoLabel))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, autoLabel))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "wp-block-navigation-item"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     className: "has-icon--light"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, lightLabel))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, lightLabel))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    className: "wp-block-navigation-item"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     className: "has-icon--dark"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, darkLabel)))));
@@ -392,7 +401,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mosne/color-scheme","version":"0.1.0","title":"Mosne Color Scheme","category":"widgets","description":"A block that allow you to choose your color scheme (a11y friendly)","example":{},"supports":{"reusable":false,"html":false},"attributes":{"classOptions":{"type":"string","default":"has-icon has-label"},"defaultLabel":{"type":"string","default":"Theme"},"autoLabel":{"type":"string","default":"OS auto"},"darkLabel":{"type":"string","default":"Dark"},"lightLabel":{"type":"string","default":"Light"}},"textdomain":"mosne-color-scheme","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mosne/color-scheme","version":"0.1.0","title":"Mosne Color Scheme","category":"widgets","description":"Choose your color scheme using the Interactivity API in an a11y friendly way.","parent":["core/navigation"],"example":{},"supports":{"reusable":false,"html":false},"attributes":{"classOptions":{"type":"string","default":"has-icon has-label"},"defaultLabel":{"type":"string","default":"Theme"},"autoLabel":{"type":"string","default":"OS auto"},"darkLabel":{"type":"string","default":"Dark"},"lightLabel":{"type":"string","default":"Light"}},"textdomain":"mosne-color-scheme","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

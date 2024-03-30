@@ -5,7 +5,8 @@
 	"version": "0.1.0",
 	"title": "Mosne Color Scheme",
 	"category": "widgets",
-	"description": "A block that allow you to choose your color scheme (a11y friendly)",
+	"description": "Choose your color scheme using the Interactivity API in an a11y friendly way.",
+	"parent": [ "core/navigation" ],
 	"example": {},
 	"supports": {
 		"reusable": false,

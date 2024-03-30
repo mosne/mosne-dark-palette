@@ -6,36 +6,28 @@
  */
 
 .wp-block-mosne-color-scheme {
-	border: 1px solid #f00;
 	&,
-	li{
+	li {
 		list-style: none;
 	}
+
 	button {
 		appearance: none;
 		padding: 0;
 		border: 0;
 		font-family: inherit;
 		font-size: inherit;
+		font-weight: inherit;
 		color: inherit;
 		background-color: inherit;
 		line-height: inherit;
 		cursor: pointer;
 	}
 
-	&.hide-label {
-		// sr-only
-		button > span {
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: -1px;
-			overflow: hidden;
-			clip: rect(0, 0, 0, 0);
-			white-space: nowrap;
-			border-width: 0;
-		}
+	ul li button {
+		padding: .5em 1em;
+		width: 100%;
+		text-align: left;
 	}
 
 	&.hide-icon {
@@ -45,7 +37,7 @@
 	}
 
 	&.has-icon {
-		button{
+		button {
 			&::before {
 				content: '';
 				width: .8lh;
@@ -57,18 +49,39 @@
 				background: currentColor;
 				vertical-align: top;
 				mask: url("../assets/auto.svg") no-repeat;
-				mask-size:  auto 100%;
+				mask-size: auto 100%;
 				mask-position: center center;
 			}
+
 			&.has-icon--light {
 				&::before {
 					mask: url("../assets/light.svg") no-repeat;
 				}
 			}
+
 			&.has-icon--dark {
 				&::before {
 					mask: url("../assets/dark.svg") no-repeat;
 				}
+			}
+		}
+	}
+	&.hide-label {
+		// sr-only
+		> button {
+			> span {
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap;
+				border-width: 0;
+				display: inline-block;
+			}
+			&::before {
+				margin-right: 0;
 			}
 		}
 	}

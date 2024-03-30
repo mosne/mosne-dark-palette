@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Mosne Color Scheme (dark light or auto)
- * Description:       A block that allow you to choose your color scheme (a11y friendly)
+ * Description:       Choose your color scheme using the Interactivity API in an a11y friendly way.
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Version:           0.1.0
