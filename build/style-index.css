@@ -24,6 +24,10 @@
   background-color: inherit;
   line-height: inherit;
   cursor: pointer;
+  white-space: nowrap;
+}
+.wp-block-mosne-color-scheme button:hover {
+  text-decoration: underline;
 }
 .wp-block-mosne-color-scheme ul li button {
   padding: 0.5em 1em;
@@ -73,28 +77,10 @@
   margin-right: 0;
 }
 
-body {
-  --mosne-color-scheme-light: var(--wp--preset--color--base);
-  --mosne-color-scheme-dark: var(--wp--preset--color--contrast);
-}
-body.mosne-color-scheme--light {
-  color: var(--mosne-color-scheme-dark);
-  background-color: var(--mosne-color-scheme-light);
-}
-body.mosne-color-scheme--auto {
-  color: var(--mosne-color-scheme-dark);
-  background-color: var(--mosne-color-scheme-light);
-}
-@media (prefers-color-scheme: dark) {
-  body.mosne-color-scheme--auto {
-    color: var(--mosne-color-scheme-light);
-    background-color: var(--mosne-color-scheme-dark);
-    prefers-color-scheme: dark;
-  }
-}
-body.mosne-color-scheme--dark {
-  color: var(--mosne-color-scheme-light);
-  background-color: var(--mosne-color-scheme-dark);
+body[data-theme=dark] {
+  --wp--preset--color--base: var(--mosne-color-scheme-dark, #fff);
+  --wp--preset--color--base-2: var(--mosne-color-scheme-dark, #fff);
+  --wp--preset--color--contrast: var(--mosne-color-scheme-light, #000);
   prefers-color-scheme: dark;
 }
 

@@ -66,31 +66,49 @@ __webpack_require__.r(__webpack_exports__);
  * WordPress dependencies
  */
 
-(0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('create-block', {
+(0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('mosne/color-scheme', {
   actions: {
-    toggle: () => {
+    makeAuto: () => {
       const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      context.isOpen = !context.isOpen;
+      context.mode = 'auto';
+      context.current = 'has-icon--auto wp-block-navigation-submenu__toggle';
+      // if media prefers-color-scheme is dark set the theme to dark
+      // if media prefers-color-scheme is light set the theme to light remove the data-theme attribute
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.body.setAttribute('data-theme', 'dark');else document.body.removeAttribute('data-theme');
+      localStorage.setItem('theme-dark-mode', 'auto');
+    },
+    makeLight: () => {
+      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
+      context.mode = 'light';
+      context.current = 'has-icon--light wp-block-navigation-submenu__toggle';
+      document.body.removeAttribute('data-theme');
+      localStorage.setItem('theme-dark-mode', 'false');
+    },
+    makeDark: () => {
+      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
+      context.mode = 'dark';
+      context.current = 'has-icon--dark wp-block-navigation-submenu__toggle';
+      document.body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme-dark-mode', 'true');
     }
   },
   callbacks: {
-    logIsOpen: () => {
-      const {
-        isOpen
-      } = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      // Log the value of `isOpen` each time it changes.
-      console.log(`Is open: ${isOpen}`);
-      document.body.classList.add('mosne-color-scheme-' + isOpen);
+    colorInit: () => {
+      const bodyStyles = window.getComputedStyle(document.body);
+      const colorBase = bodyStyles.getPropertyValue('--wp--preset--color--base').trim();
+      const colorContrast = bodyStyles.getPropertyValue('--wp--preset--color--contrast').trim();
+      document.body.style.setProperty('--mosne-color-scheme-light', colorBase);
+      document.body.style.setProperty('--mosne-color-scheme-dark', colorContrast);
+      document.body.setAttribute('data-theme', 'auto');
+      const darkMode = localStorage.getItem('theme-dark-mode') || 'auto';
+      if (darkMode === 'true') {
+        (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('mosne/color-scheme').actions.makeDark();
+      } else if (darkMode === 'auto') {
+        (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('mosne/color-scheme').actions.makeAuto();
+      }
     }
   }
 });
-
-// Get the root padding variables.
-const bodyStyles = window.getComputedStyle(document.body);
-const colorBase = bodyStyles.getPropertyValue('--wp--preset--color--base').trim();
-const colorContrast = bodyStyles.getPropertyValue('--wp--preset--color--contrast').trim();
-console.log(colorBase);
-console.log(colorContrast);
 })();
 
 
