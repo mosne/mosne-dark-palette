@@ -21,7 +21,7 @@ store( 'mosne/dark-palette', {
 			context.current =
 				'has-icon--light wp-block-navigation-submenu__toggle';
 			document.body.removeAttribute( 'data-theme' );
-			localStorage.setItem( 'theme-dark-mode', 'false' );
+			localStorage.setItem( 'mosne-dark-palette', 'false' );
 		},
 		makeDark: () => {
 			const context = getContext();

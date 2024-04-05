@@ -71,8 +71,9 @@ you can change the icons using CSS in your theme or in the customizer.
 
 == Screenshots ==
 
-1.
-2.
+1. Add custom colors
+2. Setup options and labels
+3. Edit the dark palette
 
 == Changelog ==
 
