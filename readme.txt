@@ -1,6 +1,6 @@
 === Mosne Dark Palette ===
 Contributors:      mosne
-Tags:              block
+Tags:              block, palette, dark, color, accessibility, a11y, interactivity
 Tested up to:      6.5
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
@@ -8,49 +8,74 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 Mosne Dark Palette
 
+Create and apply your dark palette in an a11y friendly way using the new Interactivity API.
+
 == Description ==
 
-Create and apply your dark palette in an a11y friendly way using the new Interactivity API.
 Child of the block navigation menu, Mosne Dark Palette is gutenberg block that gives you :
-- A dropdown to choose the color mode you want with custom labels
-- A color picker to remap you color palette
+* A dropdown switcher to choose the color mode you want with custom labels
+* A color picker to remap you color palette
+
+=== Key Features ===
+
+* Dark palette block for the block navigation menu
+* Use all your custom colors and custom labels
+* Accessibility ready
+* No cookies are used (GDPR friendly)
+* Performance optimized, very lightweight
+* No block library required
+* Built almost entirely with native WordPress components
+* Developer friendly, easy to customize
+
+=== Stay Connected ===
+
+* [View on GitHub](https://github.com/mosne/mosne-dark-palette)
+* [Visit my website](https://mosne.it/)
+* [Follow on Twitter](https://twitter.com/mosne)
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-Add the Mosne Dark Palette block in a block navigation.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/mosne-dark-palette` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-
+1. You have a couple of options:
+	* Go to Plugins &rarr; Add New and search for "Dark Palette". Once found, click "Install".
+	* Download the Dark Palette from wordpress.org and make sure the folder is zipped. Then upload via Plugins &rarr; Add New &rarr; Upload.
+2. Activate the plugin through the 'Plugins' screen in WordPress.
+3. Search for the block within the Block Editor (Gutenberg) and  add the "Dark Palette Switcher" block in a block navigation menu.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= How can i customize my css? =
 
-An answer to that question.
+you can change the desired behviour using CSS in your theme or in the customizer.
+``` css
+body[data-theme="dark"]  {
+	/* your CSS here */
+}
+```
+= Where can I add custom colors =
+You can go in the style editor (Apparence > Editor > Styles) and add color to your custom palette.
 
-= What about foo bar? =
+= Where can I change the icons? =
 
-Answer to foo bar dilemma.
+you can change the icons using CSS in your theme or in the customizer.
+``` css
+.wp-block-mosne-dark-palette.has-icon button.has-icon {
+	mask: url("[your svg path]") no-repeat;
+}
+.wp-block-mosne-dark-palette.has-icon button.has-icon--dark {
+	mask: url("[your svg path]") no-repeat;
+}
+.wp-block-mosne-dark-palette.has-icon button.has-icon--light {
+	mask: url("[your svg path]") no-repeat;
+}
+```
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1.
+2.
 
 == Changelog ==
 
-= 0.1.0 =
-* Release
+= 0.1.0 - 2023-04-04 =
 
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+* Initial release

@@ -16,16 +16,14 @@
 		appearance: none;
 		padding: 0;
 		border: 0;
-		font-family: inherit;
-		font-size: inherit;
-		font-weight: inherit;
+		font: inherit;
 		color: inherit;
-		background-color: inherit;
+		background: inherit;
 		line-height: inherit;
 		cursor: pointer;
 		white-space: nowrap;
 
-		&:hover {
+		&:hover span {
 			text-decoration: underline;
 		}
 	}
@@ -75,11 +73,8 @@
 
 	&.hide-label {
 		// sr-only
+		> button,
 		.has-child > button {
-			&:hover,
-			&:focus {
-				text-decoration: none;
-			}
 
 			> span {
 				width: 1px;
@@ -91,7 +86,6 @@
 				white-space: nowrap;
 				border-width: 0;
 				display: inline-block;
-
 			}
 
 			&::before {

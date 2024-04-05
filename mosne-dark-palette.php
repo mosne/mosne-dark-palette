@@ -1,13 +1,14 @@
 <?php
 /**
- * Plugin Name:       Mosne Dark Palette
+ * Plugin Name:       Dark Palette
  * Description:       Create and apply your dark palette in an a11y friendly way using the new Interactivity API.
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Mosne
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * author URI:        https://mosne.it
  * Text Domain:       mosne-dark-palette
  *
  * @package           create-block
@@ -53,6 +54,6 @@ function mosne_dark_palette_head_script(): void {
 	$dark_mode_script_handle = 'mosne-dark-palette';
 	wp_register_script( $dark_mode_script_handle, false, array(), false, array( 'in_footer' => false ) );
 	wp_add_inline_script( $dark_mode_script_handle, $dark_mode_script );
-	wp_enqueue_script( $dark_mode_script_handle );
+	//wp_enqueue_script( $dark_mode_script_handle );
 }
 
