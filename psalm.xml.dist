@@ -12,7 +12,6 @@
 
     <projectFiles>
         <file name="mosne-dark-palette.php"/>
-        <directory name="classes" />
-        <directory name="views" />
+        <file name="src/mosne-dark-palette/render.php"/>
     </projectFiles>
 </psalm>

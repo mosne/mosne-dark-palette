@@ -7,10 +7,10 @@
 
     <!-- Scan all files in directory -->
     <file>mosne-dark-palette.php</file>
+    <file>src/mosne-dark-palette/render.php</file>
 
     <exclude-pattern>./build/</exclude-pattern>
     <exclude-pattern>./node_modules/</exclude-pattern>
-    <exclude-pattern>./src/</exclude-pattern>
     <exclude-pattern>./vendor/</exclude-pattern>
 
     <rule ref="WordPress-Extra">

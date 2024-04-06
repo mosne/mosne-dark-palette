@@ -12,17 +12,17 @@
 
 /** @var array $attributes */
 
-$darkcolors = '';
-$colors     = '';
+$dark_colors = '';
+$colors      = '';
 
 if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 	foreach ( $attributes['darkColorsPalette'] as $color ) {
-		$darkcolors .= sprintf(
+		$dark_colors .= sprintf(
 			'--mosne-dark-palette-%s: %s;',
 			$color['slug'],
 			$color['color']
 		);
-		$colors     .= sprintf(
+		$colors      .= sprintf(
 			'--wp--preset--color--%s: var(--mosne-dark-palette-%s, %s);',
 			$color['slug'],
 			$color['slug'],
@@ -33,7 +33,7 @@ if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 
 $palette_styles = sprintf(
 	'body[data-theme="dark"] { %s %s prefers-color-scheme: dark;}',
-	$darkcolors,
+	$dark_colors,
 	$colors
 );
 
@@ -42,30 +42,32 @@ wp_add_inline_style(
 	$palette_styles
 );
 
-$unique_id = wp_unique_id( 'p-' );
-$classOptions      = $attributes['classOptions'] ?? '';
-$additionalClasses = $classOptions . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
+$unique_id          = wp_unique_id( 'p-' );
+$class_options      = $attributes['classOptions'] ?? '';
+$additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
 ?>
 
-<li <?php echo get_block_wrapper_attributes( [ "class" => $additionalClasses ] ); ?>>
+<li <?php echo get_block_wrapper_attributes( [ 'class' => $additional_classes ] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="navigaiton-item__wrapper has-child"
-		 tabindex="-1"
-		 data-wp-interactive="mosne/dark-palette"
-		 data-wp-init="callbacks.colorInit"
-		 data-wp-on--mouseenter="actions.showSubmenu"
-		 data-wp-on--mouseleave="actions.hideSubmenu"
-		 data-wp-on--click="actions.showSubmenu"
-		 data-wp-on--keydown="actions.showSubmenu"
-		 data-wp-on--focusin="actions.showSubmenu"
-		 data-wp-on--focusout="actions.hideSubmenu"
-		<?php echo wp_interactivity_data_wp_context(
+		tabindex="-1"
+		data-wp-interactive="mosne/dark-palette"
+		data-wp-init="callbacks.colorInit"
+		data-wp-on--mouseenter="actions.showSubmenu"
+		data-wp-on--mouseleave="actions.hideSubmenu"
+		data-wp-on--click="actions.showSubmenu"
+		data-wp-on--keydown="actions.showSubmenu"
+		data-wp-on--focusin="actions.showSubmenu"
+		data-wp-on--focusout="actions.hideSubmenu"
+		<?php
+		echo wp_interactivity_data_wp_context( //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			[
 				'mode'    => 'auto',
 				'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
-				'submenu' => false
+				'submenu' => false,
 			]
 		);
-		?>>
+		?>
+		>
 		<button
 			type="button"
 			aria-haspopup="menu"
