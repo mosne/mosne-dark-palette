@@ -4,13 +4,14 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import {
-	__experimentalToggleGroupControl as ToggleGroupControl,
-	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
+	__experimentalToggleGroupControl as ToggleGroupControl, // eslint-disable-line
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption, // eslint-disable-line
 	PanelBody,
 	TextControl,
 } from '@wordpress/components';
 import { DarkColorPalette } from './components/DarkColorPalette';
 import './editor.scss';
+
 export default function Edit( { attributes, setAttributes } ) {
 	const {
 		classOptions,
@@ -31,12 +32,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __(
-						'Settings',
-						'mosne-dark-palette'
-					) }
-				>
+				<PanelBody title={ __( 'Settings', 'mosne-dark-palette' ) }>
 					<ToggleGroupControl
 						__nextHasNoMarginBottom
 						isBlock

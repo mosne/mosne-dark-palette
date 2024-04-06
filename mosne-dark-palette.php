@@ -44,16 +44,17 @@ function mosne_dark_palette_head_script(): void {
 	ob_start();
 	?>
 	<script>
-		const darkMode = localStorage.getItem('mosne-dark-palette') || 'auto';
+		let darkMode = 'auto';
+		try {
+			darkMode = window.localStorage.getItem('mosne-dark-palette') || 'auto';
+		} catch (error) {
+			console.error( error.message ); // eslint-disable-line no-console
+		}
 		if (darkMode === 'true' || darkMode === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			document.body.setAttribute('data-theme', 'dark')
 		}
 	</script>
 	<?php
-	$dark_mode_script        = wp_remove_surrounding_empty_script_tags( ob_get_clean() );
-	$dark_mode_script_handle = 'mosne-dark-palette';
-	wp_register_script( $dark_mode_script_handle, false, array(), false, array( 'in_footer' => false ) );
-	wp_add_inline_script( $dark_mode_script_handle, $dark_mode_script );
-	//wp_enqueue_script( $dark_mode_script_handle );
+	wp_add_inline_script( 'mosne-dark-palette', wp_remove_surrounding_empty_script_tags( ob_get_clean() ) );
 }
 
