@@ -67,8 +67,11 @@ you can change the icons using CSS in your theme or in the customizer.
 ## Screenshots
 
 1. Add custom colors
+   ![screenshot-1](https://github.com/mosne/mosne-dark-palette/blob/main/_wordpress-org/screenshot-1.gif)
 2. Setup options and labels
+   ![screenshot-2](https://github.com/mosne/mosne-dark-palette/blob/main/_wordpress-org/screenshot-2.gif)
 3. Edit the dark palette
+   ![screenshot-3](https://github.com/mosne/mosne-dark-palette/blob/main/_wordpress-org/screenshot-3.gif)
 
 ## Changelog
 
