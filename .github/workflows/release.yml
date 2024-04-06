@@ -1,0 +1,78 @@
+name: "Release new TAG"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-release:
+    name: "Release new TAG"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - id: set-vars
+        name: "Set variable from .plugin-data file"
+        run: |
+          # Get all data from .plugin-data file
+          content=`cat ./.plugin-data`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=pluginData::$content"
+
+      - id: check-version
+        name: "Check version does not exists"
+        run: |
+          # Get the version from .plugin-data file.
+          VERSION=${{fromJson(steps.set-vars.outputs.pluginData).version}}
+
+          echo "Get Branch tag"
+          if git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "Tag already exists, stop now";
+            exit 1;
+          fi
+
+      - id: build-node
+        name: "Build project CSS and JS"
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm install
+      - run: npm run build
+
+      - id: build-php
+        name: "Build project PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.2
+      - run: composer install --prefer-dist --no-dev -o --ignore-platform-reqs
+
+      - id: commit-and-push
+        name: "Commit and push new TAG"
+        run: |
+          # Get the version from .plugin-data file.
+          VERSION=${{fromJson(steps.set-vars.outputs.pluginData).version}}
+
+          echo "Copy .distignore to .gitignore"
+          cp .distignore .gitignore
+
+          echo "Configure git"
+          git config --local user.email "$(git log --format='%ae' HEAD^!)"
+          git config --local user.name "$(git log --format='%an' HEAD^!)"
+
+          echo "Creating branch"
+          git checkout -b release/${VERSION}
+
+          echo "Creating tag ${VERSION}"
+          git add .
+          git add -u
+          git commit -m "Release version ${VERSION}"
+          git tag ${VERSION}
+          git push --tags
