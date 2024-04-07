@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Dark Palette
- * Description:       Create and apply your dark palette in an a11y friendly way using the new Interactivity API.
+ * Plugin Name:       Mosne Dark Palette
+ * Description:       Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API.
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Version:           0.1.0
@@ -34,7 +34,7 @@ add_action( 'wp_body_open', __NAMESPACE__ . '\\mosne_dark_palette_head_script', 
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function mosne_dark_palette_block_init(): void {
-	register_block_type( __DIR__ . '/build/mosne-dark-palette/' );
+	register_block_type( __DIR__ . '/build/' );
 }
 
 /**
