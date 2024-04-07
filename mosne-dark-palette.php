@@ -38,12 +38,9 @@ function mosne_dark_palette_block_init(): void {
 }
 
 /**
- * Enqueue the dark mode script.
+ * Enqueue the dark mode script at the beginning of the bod to avoid FOUC. (flash of unstyled content)
  */
 function mosne_dark_palette_head_script(): void {
-	/**
-	 * Enqueue the skip-link script.
-	 */
 	ob_start();
 	?>
 	<script>
