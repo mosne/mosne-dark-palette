@@ -52,20 +52,20 @@
 				display: inline-block;
 				background: currentColor;
 				vertical-align: top;
-				mask: url("../../assets/auto.svg") no-repeat;
+				mask: url("../assets/auto.svg") no-repeat;
 				mask-size: auto 100%;
 				mask-position: center center;
 			}
 
 			&.has-icon--light {
 				&::before {
-					mask: url("../../assets/light.svg") no-repeat;
+					mask: url("../assets/light.svg") no-repeat;
 				}
 			}
 
 			&.has-icon--dark {
 				&::before {
-					mask: url("../../assets/dark.svg") no-repeat;
+					mask: url("../assets/dark.svg") no-repeat;
 				}
 			}
 		}

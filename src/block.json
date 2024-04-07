@@ -3,12 +3,14 @@
 	"apiVersion": 3,
 	"name": "mosne/dark-palette",
 	"version": "0.1.0",
-	"title": "Dark Palette switcher",
+	"title": "Dark Palette Switcher",
 	"category": "widgets",
-	"description": "Create and apply your dark palette in an a11y friendly way using the new Interactivity API.",
+	"description": "Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API.",
 	"parent": [ "core/navigation" ],
 	"example": {},
 	"supports": {
+		"html": false,
+		"multiple": false,
 		"interactivity": true
 	},
 	"attributes": {

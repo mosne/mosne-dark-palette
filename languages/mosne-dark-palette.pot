@@ -2,26 +2,24 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dark Palette 0.1.0\n"
+"Project-Id-Version: Mosne Dark Palette 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mosne-dark-palette\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-07T09:36:06+00:00\n"
+"POT-Creation-Date: 2024-04-07T14:17:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: mosne-dark-palette\n"
 
 #. Plugin Name of the plugin
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:150
-msgid "Dark Palette"
+msgid "Mosne Dark Palette"
 msgstr ""
 
 #. Description of the plugin
-msgid "Create and apply your dark palette in an a11y friendly way using the new Interactivity API."
+msgid "Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API."
 msgstr ""
 
 #. Author of the plugin
@@ -32,57 +30,62 @@ msgstr ""
 msgid "https://mosne.it"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:239
+#: build/index.js:1
+#: build/index.js:150
+msgid "Dark Palette"
+msgstr ""
+
+#: build/index.js:1
+#: build/index.js:239
 msgid "Settings"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:248
+#: build/index.js:1
+#: build/index.js:244
 msgid "Options"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:254
+#: build/index.js:1
+#: build/index.js:250
 msgid "Icon"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:258
+#: build/index.js:1
+#: build/index.js:254
 msgid "Label"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:262
+#: build/index.js:1
+#: build/index.js:258
 msgid "Both"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:268
+#: build/index.js:1
+#: build/index.js:264
 msgid "Default label"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:278
+#: build/index.js:1
+#: build/index.js:274
 msgid "OS auto label"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:288
+#: build/index.js:1
+#: build/index.js:284
 msgid "Dark label"
 msgstr ""
 
-#: build/mosne-dark-palette/index.js:1
-#: build/mosne-dark-palette/index.js:295
+#: build/index.js:1
+#: build/index.js:291
 msgid "Light label"
 msgstr ""
 
-#: build/mosne-dark-palette/block.json
+#: build/block.json
 msgctxt "block title"
-msgid "Dark Palette switcher"
+msgid "Dark Palette Switcher"
 msgstr ""
 
-#: build/mosne-dark-palette/block.json
+#: build/block.json
 msgctxt "block description"
-msgid "Create and apply your dark palette in an a11y friendly way using the new Interactivity API."
+msgid "Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API."
 msgstr ""
