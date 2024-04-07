@@ -12,6 +12,6 @@
 
     <projectFiles>
         <file name="mosne-dark-palette.php"/>
-        <file name="src/mosne-dark-palette/render.php"/>
+        <file name="src/render.php"/>
     </projectFiles>
 </psalm>

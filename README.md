@@ -1,4 +1,4 @@
-# Dark Palette
+# Mosne Dark Palette
 
 ![Dark Palette](https://github.com/mosne/mosne-dark-palette/blob/main/_wordpress-org/banner-1544x500.png)
 
