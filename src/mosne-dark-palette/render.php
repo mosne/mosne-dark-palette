@@ -37,6 +37,9 @@ $palette_styles = sprintf(
 	$colors
 );
 
+/**
+ * Add the dark palette styles to the page.
+ */
 wp_add_inline_style(
 	'mosne-dark-palette-style',
 	$palette_styles
