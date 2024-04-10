@@ -1,6 +1,6 @@
 === Mosne Dark Palette ===
 Contributors:      mosne
-Tags:              block, palette, dark, color, accessibility, a11y, interactivity
+Tags:              block, palette, dark, color, accessibility
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      6.5
@@ -8,10 +8,10 @@ Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-== Description ==
-= Mosne Dark Palette =
 Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API.
 
+== Description ==
+= Mosne Dark Palette =
 This plugin provides the following features:
 
 * A Gutenberg block for the navigation menu, serving as a dropdown switcher that enables you to select the desired color mode using custom labels.
