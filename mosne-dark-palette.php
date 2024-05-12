@@ -21,7 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'MOSNE_DARK_PALETTE_VERSION', '0.1.0' );
+if ( ! defined( 'MOSNE_DARK_PALETTE_VERSION' ) ) {
+	define( 'MOSNE_DARK_PALETTE_VERSION', '0.1.0' );
+}
 
 add_action( 'init', __NAMESPACE__ . '\\mosne_dark_palette_block_init' );
 add_action( 'wp_body_open', __NAMESPACE__ . '\\mosne_dark_palette_head_script', 1 );

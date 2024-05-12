@@ -10,11 +10,16 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+} // Exit if access directly
+
 /** @var array $attributes */
 
 $dark_colors = '';
 $colors      = '';
 
+// Generate the CSS variables for the dark palette
 if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 	foreach ( $attributes['darkColorsPalette'] as $color ) {
 		$dark_colors .= sprintf(
@@ -30,7 +35,7 @@ if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 		);
 	}
 }
-
+// Generate the CSS for the dark palette.
 $palette_styles = sprintf(
 	'body[data-theme="dark"] { %s %s prefers-color-scheme: dark;}',
 	$dark_colors,
@@ -50,27 +55,27 @@ $class_options      = $attributes['classOptions'] ?? '';
 $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
 ?>
 
-<li <?php echo get_block_wrapper_attributes( [ 'class' => $additional_classes ] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+<li <?php echo esc_attr( get_block_wrapper_attributes( [ 'class' => $additional_classes ] ) ); ?>>
 	<div class="navigaiton-item__wrapper has-child"
-		tabindex="-1"
-		data-wp-interactive="mosne/dark-palette"
-		data-wp-init="callbacks.colorInit"
-		data-wp-on--mouseenter="actions.showSubmenu"
-		data-wp-on--mouseleave="actions.hideSubmenu"
-		data-wp-on--click="actions.showSubmenu"
-		data-wp-on--keydown="actions.showSubmenu"
-		data-wp-on--focusin="actions.showSubmenu"
-		data-wp-on--focusout="actions.hideSubmenu"
+		 tabindex="-1"
+		 data-wp-interactive="mosne/dark-palette"
+		 data-wp-init="callbacks.colorInit"
+		 data-wp-on--mouseenter="actions.showSubmenu"
+		 data-wp-on--mouseleave="actions.hideSubmenu"
+		 data-wp-on--click="actions.showSubmenu"
+		 data-wp-on--keydown="actions.showSubmenu"
+		 data-wp-on--focusin="actions.showSubmenu"
+		 data-wp-on--focusout="actions.hideSubmenu"
 		<?php
-		echo wp_interactivity_data_wp_context( //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo esc_attr( wp_interactivity_data_wp_context(
 			[
 				'mode'    => 'auto',
 				'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
 				'submenu' => false,
 			]
-		);
+		) );
 		?>
-		>
+	>
 		<button
 			type="button"
 			aria-haspopup="menu"
