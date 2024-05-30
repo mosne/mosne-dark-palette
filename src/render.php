@@ -55,7 +55,7 @@ $class_options      = $attributes['classOptions'] ?? '';
 $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
 ?>
 
-<li <?php echo esc_attr( get_block_wrapper_attributes( [ 'class' => $additional_classes ] ) ); ?>>
+<li <?php echo get_block_wrapper_attributes( [ 'class' => $additional_classes ] ); ?>>
 	<div class="navigaiton-item__wrapper has-child"
 		 tabindex="-1"
 		 data-wp-interactive="mosne/dark-palette"
@@ -67,13 +67,13 @@ $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover
 		 data-wp-on--focusin="actions.showSubmenu"
 		 data-wp-on--focusout="actions.hideSubmenu"
 		<?php
-		echo esc_attr( wp_interactivity_data_wp_context(
+		echo wp_interactivity_data_wp_context(
 			[
 				'mode'    => 'auto',
 				'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
 				'submenu' => false,
 			]
-		) );
+		);
 		?>
 	>
 		<button
