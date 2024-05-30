@@ -57,15 +57,15 @@ $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover
 
 <li <?php echo get_block_wrapper_attributes( [ 'class' => $additional_classes ] ); ?>>
 	<div class="navigaiton-item__wrapper has-child"
-		 tabindex="-1"
-		 data-wp-interactive="mosne/dark-palette"
-		 data-wp-init="callbacks.colorInit"
-		 data-wp-on--mouseenter="actions.showSubmenu"
-		 data-wp-on--mouseleave="actions.hideSubmenu"
-		 data-wp-on--click="actions.showSubmenu"
-		 data-wp-on--keydown="actions.showSubmenu"
-		 data-wp-on--focusin="actions.showSubmenu"
-		 data-wp-on--focusout="actions.hideSubmenu"
+		tabindex="-1"
+		data-wp-interactive="mosne/dark-palette"
+		data-wp-init="callbacks.colorInit"
+		data-wp-on--mouseenter="actions.showSubmenu"
+		data-wp-on--mouseleave="actions.hideSubmenu"
+		data-wp-on--click="actions.showSubmenu"
+		data-wp-on--keydown="actions.showSubmenu"
+		data-wp-on--focusin="actions.showSubmenu"
+		data-wp-on--focusout="actions.hideSubmenu"
 		<?php
 		echo wp_interactivity_data_wp_context(
 			[
