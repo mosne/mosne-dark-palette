@@ -76,15 +76,3 @@ jobs:
           git commit -m "Release version ${VERSION}"
           git tag ${VERSION}
           git push --tags
-
-      - id: regenerate-satis
-        env:
-          BUDDY_SATIS_WEBHOOK: ${{ secrets.BUDDY_SATIS_WEBHOOK }}
-        name: "Launch the Satis regeneration"
-        run: |
-          VERSION=${{fromJson(steps.set-vars.outputs.pluginData).version}}
-          SLUG=${{fromJson(steps.set-vars.outputs.pluginData).slug}}
-
-          curl --get \
-          --data-urlencode "comment=Update plugin ${SLUG} with version ${VERSION}" \
-          $BUDDY_SATIS_WEBHOOK
