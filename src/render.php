@@ -24,14 +24,14 @@ if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 	foreach ( $attributes['darkColorsPalette'] as $color ) {
 		$dark_colors .= sprintf(
 			'--mosne-dark-palette-%s: %s;',
-			$color['slug'],
-			$color['color']
+			esc_attr( $color['slug'] ),
+			esc_attr( $color['color'] )
 		);
 		$colors      .= sprintf(
 			'--wp--preset--color--%s: var(--mosne-dark-palette-%s, %s);',
-			$color['slug'],
-			$color['slug'],
-			$color['color']
+			esc_attr( $color['slug'] ),
+			esc_attr( $color['slug'] ),
+			esc_attr( $color['color'] )
 		);
 	}
 }
