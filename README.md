@@ -75,6 +75,10 @@ You can change the icons using CSS in your theme or in the customizer.
 
 ## Changelog
 
+### 0.1.1 - 2023-05-30
+
+* Fix security (disallow direct access to files)
+
 ### 0.1.0 - 2023-04-04
 
 * Initial release

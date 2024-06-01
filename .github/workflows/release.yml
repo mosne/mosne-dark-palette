@@ -1,4 +1,5 @@
-name: "Release new TAG"
+name: Release new TAG
+
 on:
   push:
     branches:
@@ -9,7 +10,7 @@ jobs:
     name: "Release new TAG"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -38,21 +39,20 @@ jobs:
             exit 1;
           fi
 
-      - id: build-node
-        name: "Build project CSS and JS"
-        uses: actions/setup-node@v3
+      - id: build-js
+        name: "Build project JS"
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-      - run: npm install
-      - run: npm run build
+          node-version-file: 'package.json'
+      - run: yarn install --frozen-lockfile
+      - run: yarn run build
 
       - id: build-php
         name: "Build project PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.2
-      - run: composer install --prefer-dist --no-dev -o --ignore-platform-reqs
+          php-version: 7.4
+      - run: composer install --prefer-dist --no-dev -o
 
       - id: commit-and-push
         name: "Commit and push new TAG"
@@ -76,3 +76,15 @@ jobs:
           git commit -m "Release version ${VERSION}"
           git tag ${VERSION}
           git push --tags
+
+      - id: regenerate-satis
+        env:
+          BUDDY_SATIS_WEBHOOK: ${{ secrets.BUDDY_SATIS_WEBHOOK }}
+        name: "Launch the Satis regeneration"
+        run: |
+          VERSION=${{fromJson(steps.set-vars.outputs.pluginData).version}}
+          SLUG=${{fromJson(steps.set-vars.outputs.pluginData).slug}}
+
+          curl --get \
+          --data-urlencode "comment=Update plugin ${SLUG} with version ${VERSION}" \
+          $BUDDY_SATIS_WEBHOOK

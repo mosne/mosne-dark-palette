@@ -10,11 +10,16 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+} // Exit if access directly
+
 /** @var array $attributes */
 
 $dark_colors = '';
 $colors      = '';
 
+// Generate the CSS variables for the dark palette
 if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 	foreach ( $attributes['darkColorsPalette'] as $color ) {
 		$dark_colors .= sprintf(
@@ -30,7 +35,7 @@ if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 		);
 	}
 }
-
+// Generate the CSS for the dark palette.
 $palette_styles = sprintf(
 	'body[data-theme="dark"] { %s %s prefers-color-scheme: dark;}',
 	$dark_colors,
@@ -48,10 +53,9 @@ wp_add_inline_style(
 $unique_id          = wp_unique_id( 'p-' );
 $class_options      = $attributes['classOptions'] ?? '';
 $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
-?>
 
-<li <?php echo get_block_wrapper_attributes( [ 'class' => $additional_classes ] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-	<div class="navigaiton-item__wrapper has-child"
+sprintf(
+	'<li %s><div class="navigaiton-item__wrapper has-child"
 		tabindex="-1"
 		data-wp-interactive="mosne/dark-palette"
 		data-wp-init="callbacks.colorInit"
@@ -61,49 +65,50 @@ $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover
 		data-wp-on--keydown="actions.showSubmenu"
 		data-wp-on--focusin="actions.showSubmenu"
 		data-wp-on--focusout="actions.hideSubmenu"
-		<?php
-		echo wp_interactivity_data_wp_context( //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			[
-				'mode'    => 'auto',
-				'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
-				'submenu' => false,
-			]
-		);
-		?>
-		>
-		<button
-			type="button"
-			aria-haspopup="menu"
-			data-wp-bind--class="context.current"
-			data-wp-bind--aria-expanded="context.submenu"
-			class="wp-block-navigation-submenu__toggle">
+		%s>',
+	get_block_wrapper_attributes( [ 'class' => $additional_classes ] ),
+	wp_interactivity_data_wp_context(
+		[
+			'mode'    => 'auto',
+			'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
+			'submenu' => false,
+		]
+	)
+);
+?>
+<button
+	type="button"
+	aria-haspopup="menu"
+	data-wp-bind--class="context.current"
+	data-wp-bind--aria-expanded="context.submenu"
+	class="wp-block-navigation-submenu__toggle">
 				<span data-wp-bind--aria-label="context.mode">
 					<?php echo esc_html( $attributes['defaultLabel'] ); ?>
 				</span>
-		</button>
-		<ul aria-labelledby="themes-menu-button"
-			class="wp-block-navigation__submenu-container wp-block-navigation-submenu">
-			<li class="wp-block-navigation-item">
-				<button type="button" data-wp-on--click="actions.makeAuto">
+</button>
+<ul aria-labelledby="themes-menu-button"
+	class="wp-block-navigation__submenu-container wp-block-navigation-submenu">
+	<li class="wp-block-navigation-item">
+		<button type="button" data-wp-on--click="actions.makeAuto">
 				<span>
 					<?php echo esc_html( $attributes['autoLabel'] ); ?>
 				</span>
-				</button>
-			</li>
-			<li class="wp-block-navigation-item">
-				<button type="button" class="has-icon--light" data-wp-on--click="actions.makeLight">
+		</button>
+	</li>
+	<li class="wp-block-navigation-item">
+		<button type="button" class="has-icon--light" data-wp-on--click="actions.makeLight">
 				<span>
 					<?php echo esc_html( $attributes['lightLabel'] ); ?>
 				</span>
-				</button>
-			</li>
-			<li class="wp-block-navigation-item">
-				<button type="button" class="has-icon--dark" data-wp-on--click="actions.makeDark">
+		</button>
+	</li>
+	<li class="wp-block-navigation-item">
+		<button type="button" class="has-icon--dark" data-wp-on--click="actions.makeDark">
 				<span>
 					<?php echo esc_html( $attributes['darkLabel'] ); ?>
 				</span>
-				</button>
-			</li>
-		</ul>
-	</div>
+		</button>
+	</li>
+</ul>
+</div>
 </li>
