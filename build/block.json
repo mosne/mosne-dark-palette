@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mosne/dark-palette",
+  "version": "0.1.0",
+  "title": "Dark Palette Switcher",
+  "category": "widgets",
+  "description": "Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API.",
+  "parent": [
+    "core/navigation"
+  ],
+  "example": {},
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "interactivity": true
+  },
+  "attributes": {
+    "classOptions": {
+      "type": "string",
+      "default": "has-icon has-label"
+    },
+    "defaultLabel": {
+      "type": "string",
+      "default": "Theme"
+    },
+    "autoLabel": {
+      "type": "string",
+      "default": "OS auto"
+    },
+    "darkLabel": {
+      "type": "string",
+      "default": "Dark"
+    },
+    "lightLabel": {
+      "type": "string",
+      "default": "Light"
+    },
+    "darkColorsPalette": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "mosne-dark-palette",
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScriptModule": "file:./view.js"
+}
