@@ -52,7 +52,7 @@ wp_add_inline_style(
 
 $unique_id          = wp_unique_id( 'p-' );
 $class_options      = $attributes['classOptions'] ?? '';
-$additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
+$additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click toto wp-block-navigation-submenu';
 
 ?>
 <li <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => $additional_classes ] ) ); ?>>
