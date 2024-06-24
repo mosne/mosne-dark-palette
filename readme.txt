@@ -46,7 +46,7 @@ This plugin provides the following features:
 
 = How can I customize my CSS? =
 
-You can change the desired behavior using CSS in your theme or in the customizer.
+You can change the desired behavior using CSS in your theme or in the customizer:
 `
 body[data-theme="dark"]  {
 	/* your CSS here */
