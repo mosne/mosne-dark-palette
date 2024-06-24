@@ -4,7 +4,7 @@ Tags:              block, palette, dark, color, accessibility
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      6.5
-Stable tag:        0.1.3
+Stable tag:        0.1.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
