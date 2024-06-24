@@ -46,7 +46,7 @@ This plugin provides the following features:
 
 = How can I customize my CSS? =
 
-You can change the desired behavior using CSS in your theme or in the customizer.
+You can change the desired behavior using CSS in your theme or in the customizer:
 `
 body[data-theme="dark"]  {
 	/* your CSS here */
@@ -77,6 +77,10 @@ You can change the icons using CSS in your theme or in the customizer.
 3. Edit the dark palette
 
 == Changelog ==
+= 0.1.4 - 2023-06-09 =
+
+* First release on WordPress.org
+
 = 0.1.3 - 2023-06-09 =
 
 * Fix escaping via wp_kses_data and changelogs
