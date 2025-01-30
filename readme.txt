@@ -4,7 +4,7 @@ Tags:              block, palette, dark, color, accessibility
 Requires at least: 6.5
 Requires PHP:      7.4
 Tested up to:      6.5
-Stable tag:        0.1.3
+Stable tag:        0.1.5
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,22 +77,26 @@ You can change the icons using CSS in your theme or in the customizer.
 3. Edit the dark palette
 
 == Changelog ==
-= 0.1.4 - 2023-06-09 =
+= 0.1.5 - 2025-01-29 =
+
+* Add default mode option
+
+= 0.1.4 - 2024-06-09 =
 
 * First release on WordPress.org
 
-= 0.1.3 - 2023-06-09 =
+= 0.1.3 - 2024-06-09 =
 
 * Fix escaping via wp_kses_data and changelogs
 
-= 0.1.2 - 2023-06-01 =
+= 0.1.2 - 2024-06-01 =
 
 * Fix escaping and changelogs
 
-= 0.1.1 - 2023-05-30 =
+= 0.1.1 - 2024-05-30 =
 
 * Fix security (disallow direct access to files)
 
-= 0.1.0 - 2023-04-04 =
+= 0.1.0 - 2024-04-04 =
 
 * Initial release

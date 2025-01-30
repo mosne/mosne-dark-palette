@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import {
@@ -14,6 +15,8 @@ import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
+		defaultOption,
+		themeOption,
 		classOptions,
 		defaultLabel,
 		autoLabel,
@@ -33,6 +36,49 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'mosne-dark-palette' ) }>
+					<ToggleGroupControl
+						__nextHasNoMarginBottom
+						isBlock
+						value={ defaultOption }
+						label={ __( 'Default state', 'mosne-dark-palette' ) }
+						onChange={ ( value ) =>
+							setAttributes( { defaultOption: value } )
+						}
+					>
+						<ToggleGroupControlOption
+							label={ __( 'Auto', 'mosne-dark-palette' ) }
+							value="auto"
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Light', 'mosne-dark-palette' ) }
+							value="light"
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Dark', 'mosne-dark-palette' ) }
+							value="dark"
+						/>
+					</ToggleGroupControl>
+					<ToggleGroupControl
+						__nextHasNoMarginBottom
+						isBlock
+						value={ themeOption }
+						label={ __(
+							'Original theme style',
+							'mosne-dark-palette'
+						) }
+						onChange={ ( value ) =>
+							setAttributes( { themeOption: value } )
+						}
+					>
+						<ToggleGroupControlOption
+							label={ __( 'Light', 'mosne-dark-palette' ) }
+							value="light"
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Dark', 'mosne-dark-palette' ) }
+							value="dark"
+						/>
+					</ToggleGroupControl>
 					<ToggleGroupControl
 						__nextHasNoMarginBottom
 						isBlock
