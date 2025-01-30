@@ -45,7 +45,10 @@ This plugin provides the following features:
 You can change the desired behavior using CSS in your theme or in the customizer.
 
 ``` css
-body[data-theme="dark"]  {
+html[data-theme="dark"]  {
+ /* your CSS here */
+}
+html[data-theme="light"]  {
  /* your CSS here */
 }
 ```
