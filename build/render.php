@@ -16,8 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** @var array $attributes */
 
-$dark_colors = '';
-$colors      = '';
+$dark_colors        = '';
+$colors             = '';
+$theme_options      = $attributes['themeOption'] ?? 'light';
+$default_options    = $attributes['defaultOption'] ?? 'auto';
+$unique_id          = wp_unique_id( 'p-' );
+$class_options      = $attributes['classOptions'] ?? '';
+$additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
 
 // Generate the CSS variables for the dark palette
 if ( ! empty( $attributes['darkColorsPalette'] ) ) {
@@ -36,11 +41,19 @@ if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 	}
 }
 // Generate the CSS for the dark palette.
-$palette_styles = sprintf(
-	'body[data-theme="dark"] { %s %s prefers-color-scheme: dark;}',
-	$dark_colors,
-	$colors
-);
+if ( $theme_options === "light" ) {
+	$palette_styles = sprintf(
+		'html[data-theme="dark"] { %s %s prefers-color-scheme: dark;}',
+		$dark_colors,
+		$colors
+	);
+} else {
+	$palette_styles = sprintf(
+		'html[data-theme="light"] { %s %s prefers-color-scheme: light;}',
+		$dark_colors,
+		$colors
+	);
+}
 
 /**
  * Add the dark palette styles to the page.
@@ -50,27 +63,51 @@ wp_add_inline_style(
 	$palette_styles
 );
 
-$unique_id          = wp_unique_id( 'p-' );
-$class_options      = $attributes['classOptions'] ?? '';
-$additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click toto wp-block-navigation-submenu';
+/**
+ * Enqueue the dark mode script at the beginning of the bod to avoid FOUC. (flash of unstyled content)
+ */
+// Register an empty script handle to attach the inline script.
+wp_register_script( 'mosne-dark-palette-inline', '' );
+wp_enqueue_script( 'mosne-dark-palette-inline' );
+
+// Inline script to set the theme based on user preference or system preference.
+$inline_script = '
+	let initMode = "' . $default_options . '";
+	try {
+		initMode = window.localStorage.getItem("mosne-dark-palette") || "' . $default_options . '";
+	} catch (error) {
+		console.error(error.message);
+	}
+	if (initMode === "dark" || initMode === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		// Set the theme to dark
+		document.documentElement.setAttribute("data-theme", "dark");
+	} else {
+		// Set the theme to light
+		document.documentElement.setAttribute("data-theme", "light");
+	}
+';
+
+// Ensure proper escaping
+$inline_script_minified = preg_replace( '/\s+/', ' ', $inline_script );
+wp_add_inline_script( 'mosne-dark-palette-inline', $inline_script_minified );
 
 ?>
 <li <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => $additional_classes ] ) ); ?>>
 	<div class="navigaiton-item__wrapper has-child"
-		tabindex="-1"
-		data-wp-interactive="mosne/dark-palette"
-		data-wp-init="callbacks.colorInit"
-		data-wp-on--mouseenter="actions.showSubmenu"
-		data-wp-on--mouseleave="actions.hideSubmenu"
-		data-wp-on--click="actions.showSubmenu"
-		data-wp-on--keydown="actions.showSubmenu"
-		data-wp-on--focusin="actions.showSubmenu"
-		data-wp-on--focusout="actions.hideSubmenu"
+		 tabindex="-1"
+		 data-wp-interactive="mosne/dark-palette"
+		 data-wp-init="callbacks.colorInit"
+		 data-wp-on--mouseenter="actions.showSubmenu"
+		 data-wp-on--mouseleave="actions.hideSubmenu"
+		 data-wp-on--click="actions.showSubmenu"
+		 data-wp-on--keydown="actions.showSubmenu"
+		 data-wp-on--focusin="actions.showSubmenu"
+		 data-wp-on--focusout="actions.hideSubmenu"
 		<?php
 		echo wp_kses_data(
 			wp_interactivity_data_wp_context(
 				[
-					'mode'    => 'auto',
+					'mode'    => $default_options,
 					'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
 					'submenu' => false,
 				]
