@@ -67,7 +67,7 @@ wp_add_inline_style(
  * Enqueue the dark mode script at the beginning of the bod to avoid FOUC. (flash of unstyled content)
  */
 // Register an empty script handle to attach the inline script.
-wp_register_script( 'mosne-dark-palette-inline', '' );
+wp_register_script( 'mosne-dark-palette-inline', '', [], MOSNE_DARK_PALETTE_VERSION, [ 'in_footer' => false ] );
 wp_enqueue_script( 'mosne-dark-palette-inline' );
 
 // Inline script to set the theme based on user preference or system preference.
