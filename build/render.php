@@ -41,7 +41,7 @@ if ( ! empty( $attributes['darkColorsPalette'] ) ) {
 	}
 }
 // Generate the CSS for the dark palette.
-if ( $theme_options === "light" ) {
+if ( "light" === $theme_options ) {
 	$palette_styles = sprintf(
 		'html[data-theme="dark"] { %s %s prefers-color-scheme: dark;}',
 		$dark_colors,

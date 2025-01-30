@@ -62,7 +62,10 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom
 						isBlock
 						value={ themeOption }
-						label={ __( 'Original theme style', 'mosne-dark-palette' ) }
+						label={ __(
+							'Original theme style',
+							'mosne-dark-palette'
+						) }
 						onChange={ ( value ) =>
 							setAttributes( { themeOption: value } )
 						}
