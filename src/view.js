@@ -10,9 +10,11 @@ const { actions } = store( 'mosne/dark-palette', {
 			context.mode = 'auto';
 			context.current =
 				'has-icon--auto wp-block-navigation-submenu__toggle';
-			if ( window.matchMedia( '(prefers-color-scheme: dark)' ).matches )
+			if ( window.matchMedia( '(prefers-color-scheme: dark)' ).matches ) {
 				document.documentElement.setAttribute( 'data-theme', 'dark' );
-			else document.documentElement.setAttribute( 'data-theme', 'light' );
+			} else {
+				document.documentElement.setAttribute( 'data-theme', 'light' );
+			}
 			try {
 				window.localStorage.setItem( 'mosne-dark-palette', 'auto' );
 			} catch ( error ) {
