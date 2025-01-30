@@ -3,7 +3,7 @@
         'name' => 'mosne/dark-palette',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1774c4632c31b2df193a07bd6e9698ddf31af05b',
+        'reference' => 'ef4a52ddfb79c82eaca4178be06a0cc4e0570fa1',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'mosne/dark-palette' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1774c4632c31b2df193a07bd6e9698ddf31af05b',
+            'reference' => 'ef4a52ddfb79c82eaca4178be06a0cc4e0570fa1',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
