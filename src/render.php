@@ -22,12 +22,13 @@ $theme_options      = $attributes['themeOption'] ?? 'light';
 $default_options    = $attributes['defaultOption'] ?? 'auto';
 $unique_id          = wp_unique_id( 'p-' );
 $class_options      = $attributes['classOptions'] ?? '';
-$apparence_options      = $attributes['apparenceOption'] ?? 'dropdown';
+$enable_auto        = $attributes['enableAuto'] ?? true;
+$apparence_options  = $attributes['apparenceOption'] ?? 'dropdown';
 $additional_classes = $class_options . '  wp-block-navigation-item open-on-hover-click wp-block-navigation-submenu';
-$labels = [
-	'auto'    => esc_attr( $attributes['autoLabel'] ),
-	'light'   => esc_attr( $attributes['lightLabel'] ),
-	'dark'    => esc_attr( $attributes['darkLabel'] ),
+$labels             = [
+	'auto'  => esc_attr( $attributes['autoLabel'] ),
+	'light' => esc_attr( $attributes['lightLabel'] ),
+	'dark'  => esc_attr( $attributes['darkLabel'] ),
 ];
 
 // Generate the CSS variables for the dark palette
@@ -79,7 +80,6 @@ wp_enqueue_script( 'mosne-dark-palette-inline' );
 // Inline script to set the theme based on user preference or system preference.
 $inline_script = '
 	(function () {
-	console.log("mosne-dark-palette",new Date().toISOString());
 		/* Set the theme based on user preference or system preference */
 		let initMode = "' . $default_options . '";
 		try {
@@ -106,99 +106,102 @@ wp_add_inline_script( 'mosne-dark-palette-inline', $inline_script_minified );
 ?>
 <li <?php echo wp_kses_data( get_block_wrapper_attributes( [ 'class' => $additional_classes ] ) ); ?>>
 
-	<?php if ("toggle"=== $apparence_options ): ?>
+	<?php if ( 'toggle' === $apparence_options ) : ?>
 
 		<div class="navigaiton-item__wrapper"
-		tabindex="-1"
-		data-wp-interactive="mosne/dark-palette"
-		data-wp-init="callbacks.colorInit"
-		data-wp-on--click="actions.toggleMode"
-		data-wp-on--keydown="actions.toggleMode"
-		<?php
-		echo wp_kses_data(
-			wp_interactivity_data_wp_context(
-				[
-					'mode'    => $default_options,
-					'aria'    => $labels[$default_options],
-					'current' => 'has-icon--auto',
-					'submenu' => false,
-					'labels'  => $labels,
-					''
-				]
-			)
-		);
-		?>
-	>
-		<button
-			type="button"
-			data-wp-bind--class="context.current"
-			data-wp-bind--aria-expanded="context.submenu"
-			class="wp-block-navigation-submenu__toggle">
+			tabindex="-1"
+			data-wp-interactive="mosne/dark-palette"
+			data-wp-init="callbacks.colorInit"
+			data-wp-on--click="actions.toggleMode"
+			data-wp-on--keydown="actions.toggleMode"
+			<?php
+			echo wp_kses_data(
+				wp_interactivity_data_wp_context(
+					[
+						'mode'    => $default_options,
+						'aria'    => $labels[ $default_options ],
+						'current' => 'has-icon--auto',
+						'submenu' => false,
+						'labels'  => $labels,
+						'hasAuto' => $enable_auto,
+					]
+				)
+			);
+			?>
+		>
+			<button
+				type="button"
+				data-wp-bind--class="context.current"
+				data-wp-bind--aria-expanded="context.submenu"
+				class="wp-block-navigation-submenu__toggle">
 				<span data-wp-bind--aria-label="context.aria">
 					<?php echo esc_html( $attributes['defaultLabel'] ); ?>
 				</span>
-		</button>
-	</div>
+			</button>
+		</div>
 
 	<?php else : ?>
-	<div class="navigaiton-item__wrapper has-child"
-		tabindex="-1"
-		data-wp-interactive="mosne/dark-palette"
-		data-wp-init="callbacks.colorInit"
-		data-wp-on--mouseenter="actions.showSubmenu"
-		data-wp-on--mouseleave="actions.hideSubmenu"
-		data-wp-on--click="actions.showSubmenu"
-		data-wp-on--keydown="actions.showSubmenu"
-		data-wp-on--focusin="actions.showSubmenu"
-		data-wp-on--focusout="actions.hideSubmenu"
-		<?php
-		echo wp_kses_data(
-			wp_interactivity_data_wp_context(
-				[
-					'mode'    => $default_options,
-					'aria'    => $labels[$default_options],
-					'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
-					'submenu' => false,
-					'labels'  => $labels,
-				]
-			)
-		);
-		?>
-	>
-		<button
-			type="button"
-			aria-haspopup="menu"
-			data-wp-bind--class="context.current"
-			data-wp-bind--aria-expanded="context.submenu"
-			class="wp-block-navigation-submenu__toggle">
+		<div class="navigaiton-item__wrapper has-child"
+			tabindex="-1"
+			data-wp-interactive="mosne/dark-palette"
+			data-wp-init="callbacks.colorInit"
+			data-wp-on--mouseenter="actions.showSubmenu"
+			data-wp-on--mouseleave="actions.hideSubmenu"
+			data-wp-on--click="actions.showSubmenu"
+			data-wp-on--keydown="actions.showSubmenu"
+			data-wp-on--focusin="actions.showSubmenu"
+			data-wp-on--focusout="actions.hideSubmenu"
+			<?php
+			echo wp_kses_data(
+				wp_interactivity_data_wp_context(
+					[
+						'mode'    => $default_options,
+						'aria'    => $labels[ $default_options ],
+						'current' => 'has-icon--auto wp-block-navigation-submenu__toggle',
+						'submenu' => false,
+						'labels'  => $labels,
+						'hasAuto' => $enable_auto,
+					]
+				)
+			);
+			?>
+		>
+			<button
+				type="button"
+				aria-haspopup="menu"
+				data-wp-bind--class="context.current"
+				data-wp-bind--aria-expanded="context.submenu"
+				class="wp-block-navigation-submenu__toggle">
 				<span data-wp-bind--aria-label="context.aria">
 					<?php echo esc_html( $attributes['defaultLabel'] ); ?>
 				</span>
-		</button>
-		<ul aria-labelledby="themes-menu-button"
-			class="wp-block-navigation__submenu-container wp-block-navigation-submenu">
-			<li class="wp-block-navigation-item">
-				<button type="button" data-wp-on--click="actions.makeAuto">
-				<span>
-					<?php echo esc_html( $attributes['autoLabel'] ); ?>
-				</span>
-				</button>
-			</li>
-			<li class="wp-block-navigation-item">
-				<button type="button" class="has-icon--light" data-wp-on--click="actions.makeLight">
-				<span>
-					<?php echo esc_html( $attributes['lightLabel'] ); ?>
-				</span>
-				</button>
-			</li>
-			<li class="wp-block-navigation-item">
-				<button type="button" class="has-icon--dark" data-wp-on--click="actions.makeDark">
-				<span>
-					<?php echo esc_html( $attributes['darkLabel'] ); ?>
-				</span>
-				</button>
-			</li>
-		</ul>
-	</div>
+			</button>
+			<ul aria-labelledby="themes-menu-button"
+				class="wp-block-navigation__submenu-container wp-block-navigation-submenu">
+				<?php if ( $enable_auto ) : ?>
+					<li class="wp-block-navigation-item">
+						<button type="button" data-wp-on--click="actions.makeAuto">
+							<span>
+								<?php echo esc_html( $attributes['autoLabel'] ); ?>
+							</span>
+						</button>
+					</li>
+				<?php endif; ?>
+				<li class="wp-block-navigation-item">
+					<button type="button" class="has-icon--light" data-wp-on--click="actions.makeLight">
+						<span>
+							<?php echo esc_html( $attributes['lightLabel'] ); ?>
+						</span>
+					</button>
+				</li>
+				<li class="wp-block-navigation-item">
+					<button type="button" class="has-icon--dark" data-wp-on--click="actions.makeDark">
+						<span>
+							<?php echo esc_html( $attributes['darkLabel'] ); ?>
+						</span>
+					</button>
+				</li>
+			</ul>
+		</div>
 	<?php endif; ?>
 </li>

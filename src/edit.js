@@ -15,6 +15,7 @@ import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
+		enableAuto,
 		defaultOption,
 		themeOption,
 		apparenceOption,
@@ -37,7 +38,25 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'mosne-dark-palette' ) }>
-				<ToggleGroupControl
+					<ToggleGroupControl
+						__nextHasNoMarginBottom
+						isBlock
+						value={ enableAuto }
+						label={ __( 'Mode Auto', 'mosne-dark-palette' ) }
+						onChange={ ( value ) =>
+							setAttributes( { enableAuto: value } )
+						}
+					>
+						<ToggleGroupControlOption
+							label={ __( 'On', 'mosne-dark-palette' ) }
+							value={ true }
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Off', 'mosne-dark-palette' ) }
+							value={ false }
+						/>
+					</ToggleGroupControl>
+					<ToggleGroupControl
 						__nextHasNoMarginBottom
 						isBlock
 						value={ apparenceOption }
@@ -67,6 +86,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						<ToggleGroupControlOption
 							label={ __( 'Auto', 'mosne-dark-palette' ) }
 							value="auto"
+							disabled={ ! enableAuto }
 						/>
 						<ToggleGroupControlOption
 							label={ __( 'Light', 'mosne-dark-palette' ) }

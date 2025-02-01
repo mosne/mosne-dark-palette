@@ -13,7 +13,7 @@ const { actions } = store( 'mosne/dark-palette', {
 			const context = getContext();
 			if ( context.mode === 'light' ) {
 				actions.makeDark();
-			} else if ( context.mode === 'dark' ) {
+			} else if ( context.mode === 'dark' && context.hasAuto ) {
 				actions.makeAuto();
 			} else {
 				actions.makeLight();
@@ -24,7 +24,7 @@ const { actions } = store( 'mosne/dark-palette', {
 			context.mode = 'auto';
 			context.current =
 				'has-icon--auto wp-block-navigation-submenu__toggle';
-				actions.updateAriaLabel();
+			actions.updateAriaLabel();
 			if ( window.matchMedia( '(prefers-color-scheme: dark)' ).matches ) {
 				document.documentElement.setAttribute( 'data-theme', 'dark' );
 			} else {
@@ -41,7 +41,7 @@ const { actions } = store( 'mosne/dark-palette', {
 			context.mode = 'light';
 			context.current =
 				'has-icon--light wp-block-navigation-submenu__toggle';
-				actions.updateAriaLabel();
+			actions.updateAriaLabel();
 			document.documentElement.setAttribute( 'data-theme', 'light' );
 			try {
 				window.localStorage.setItem( 'mosne-dark-palette', 'light' );
@@ -54,7 +54,7 @@ const { actions } = store( 'mosne/dark-palette', {
 			context.mode = 'dark';
 			context.current =
 				'has-icon--dark wp-block-navigation-submenu__toggle';
-				actions.updateAriaLabel();
+			actions.updateAriaLabel();
 			document.documentElement.setAttribute( 'data-theme', 'dark' );
 			try {
 				window.localStorage.setItem( 'mosne-dark-palette', 'dark' );
@@ -75,7 +75,6 @@ const { actions } = store( 'mosne/dark-palette', {
 		colorInit: () => {
 			const context = getContext();
 			let initMode = context.mode;
-			console.log("colorInit",new Date().toISOString());
 			try {
 				initMode =
 					window.localStorage.getItem( 'mosne-dark-palette' ) ||

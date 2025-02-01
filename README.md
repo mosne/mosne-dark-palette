@@ -84,6 +84,11 @@ You can change the icons using CSS in your theme or in the customizer.
 
 ## Changelog
 
+### 0.1.6 - 2025-02-01
+
+* Add toogle mode
+* Add on/off on auto mode
+
 ### 0.1.5 - 2025-01-29
 
 * Add default mode option
