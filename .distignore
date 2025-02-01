@@ -12,6 +12,7 @@
 .plugin-data
 .wp-env.json
 CHANGELOG.md
+check_versions.js
 composer.json
 composer.lock
 grumphp.yml
