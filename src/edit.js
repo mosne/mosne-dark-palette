@@ -17,6 +17,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const {
 		defaultOption,
 		themeOption,
+		apparenceOption,
 		classOptions,
 		defaultLabel,
 		autoLabel,
@@ -36,6 +37,24 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'mosne-dark-palette' ) }>
+				<ToggleGroupControl
+						__nextHasNoMarginBottom
+						isBlock
+						value={ apparenceOption }
+						label={ __( 'Appearance', 'mosne-dark-palette' ) }
+						onChange={ ( value ) =>
+							setAttributes( { apparenceOption: value } )
+						}
+					>
+						<ToggleGroupControlOption
+							label={ __( 'Dropdown', 'mosne-dark-palette' ) }
+							value="dropdown"
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Toggle', 'mosne-dark-palette' ) }
+							value="toggle"
+						/>
+					</ToggleGroupControl>
 					<ToggleGroupControl
 						__nextHasNoMarginBottom
 						isBlock
