@@ -84,6 +84,10 @@ You can change the icons using CSS in your theme or in the customizer.
 
 ## Changelog
 
+### 0.1.7 - 2025-02-01
+
+* Add version check test, update readme.
+
 ### 0.1.6 - 2025-02-01
 
 * Add toogle mode

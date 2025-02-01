@@ -32,3 +32,6 @@ jobs:
 
       - name: Run wp-script lint:js on src folder
         run: yarn run lint:js src
+
+      - name: Check for version number consistency
+        run: node check_versions.js

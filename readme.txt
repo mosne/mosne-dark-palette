@@ -3,8 +3,8 @@ Contributors:      mosne
 Tags:              block, palette, dark, color, accessibility
 Requires at least: 6.5
 Requires PHP:      7.4
-Tested up to:      6.5
-Stable tag:        0.1.5
+Tested up to:      6.7
+Stable tag:        0.1.7
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,11 @@ You can change the icons using CSS in your theme or in the customizer.
 3. Edit the dark palette
 
 == Changelog ==
+
+= 0.1.7 - 2025-02-01 =
+
+* Add version check test, update readme.
+
 = 0.1.6 - 2025-02-01 =
 
 * Add toogle mode
