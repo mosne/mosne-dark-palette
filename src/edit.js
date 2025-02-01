@@ -15,8 +15,10 @@ import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
+		enableAuto,
 		defaultOption,
 		themeOption,
+		apparenceOption,
 		classOptions,
 		defaultLabel,
 		autoLabel,
@@ -39,6 +41,42 @@ export default function Edit( { attributes, setAttributes } ) {
 					<ToggleGroupControl
 						__nextHasNoMarginBottom
 						isBlock
+						value={ enableAuto }
+						label={ __( 'Mode Auto', 'mosne-dark-palette' ) }
+						onChange={ ( value ) =>
+							setAttributes( { enableAuto: value } )
+						}
+					>
+						<ToggleGroupControlOption
+							label={ __( 'On', 'mosne-dark-palette' ) }
+							value={ true }
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Off', 'mosne-dark-palette' ) }
+							value={ false }
+						/>
+					</ToggleGroupControl>
+					<ToggleGroupControl
+						__nextHasNoMarginBottom
+						isBlock
+						value={ apparenceOption }
+						label={ __( 'Appearance', 'mosne-dark-palette' ) }
+						onChange={ ( value ) =>
+							setAttributes( { apparenceOption: value } )
+						}
+					>
+						<ToggleGroupControlOption
+							label={ __( 'Dropdown', 'mosne-dark-palette' ) }
+							value="dropdown"
+						/>
+						<ToggleGroupControlOption
+							label={ __( 'Toggle', 'mosne-dark-palette' ) }
+							value="toggle"
+						/>
+					</ToggleGroupControl>
+					<ToggleGroupControl
+						__nextHasNoMarginBottom
+						isBlock
 						value={ defaultOption }
 						label={ __( 'Default state', 'mosne-dark-palette' ) }
 						onChange={ ( value ) =>
@@ -48,6 +86,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						<ToggleGroupControlOption
 							label={ __( 'Auto', 'mosne-dark-palette' ) }
 							value="auto"
+							disabled={ ! enableAuto }
 						/>
 						<ToggleGroupControlOption
 							label={ __( 'Light', 'mosne-dark-palette' ) }

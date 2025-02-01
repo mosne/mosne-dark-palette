@@ -4,7 +4,7 @@
  * Description:       Create and apply your dark palette in an accessibility-friendly manner using the new Interactivity API.
  * Requires at least: 6.5
  * Requires PHP:      7.4
- * Version:           0.1.5
+ * Version:           0.1.6
  * Author:            Mosne
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'MOSNE_DARK_PALETTE_VERSION', '0.1.5' );
+define( 'MOSNE_DARK_PALETTE_VERSION', '0.1.6' );
 
 
 add_action( 'init', __NAMESPACE__ . '\\mosne_dark_palette_block_init' );

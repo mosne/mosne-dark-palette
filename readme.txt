@@ -48,7 +48,10 @@ This plugin provides the following features:
 
 You can change the desired behavior using CSS in your theme or in the customizer:
 `
-body[data-theme="dark"]  {
+html[data-theme="dark"]  {
+	/* your CSS here */
+	}
+html[data-theme="light"]  {
 	/* your CSS here */
 	}
 `
@@ -77,6 +80,11 @@ You can change the icons using CSS in your theme or in the customizer.
 3. Edit the dark palette
 
 == Changelog ==
+= 0.1.6 - 2025-02-01 =
+
+* Add toogle mode
+* Add on/off on auto mode
+
 = 0.1.5 - 2025-01-29 =
 
 * Add default mode option
