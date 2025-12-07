@@ -32,7 +32,6 @@ This plugin provides the following features:
 
 * [View on GitHub](https://github.com/mosne/mosne-dark-palette)
 * [Visit my website](https://mosne.it/)
-* [Follow on Twitter](https://twitter.com/mosne)
 
 == Installation ==
 
